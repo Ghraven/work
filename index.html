@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang=en><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Rolly Calma — Python developer · AI automation · finance tooling</title>
+<meta name=description content="Self-taught Python developer with a finance/accounting background. I build small, tested, deployed tools: AR/AP automation, website QA, and retrieval (RAG) demos. Available for junior Python / AI-automation roles and project work.">
+<meta property=og:title content="Rolly Calma — Python developer · AI automation">
+<meta property=og:description content="I build small, tested, deployed tools. Try them live.">
+<meta property=og:type content="website">
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d1117;color:#e6edf3;margin:0;line-height:1.6}
+.wrap{max-width:880px;margin:0 auto;padding:48px 20px}
+header h1{font-size:34px;margin:0 0 6px;letter-spacing:-.02em}
+.role{color:#7ee787;font-weight:600;font-size:16px}
+.lede{color:#c9d1d9;font-size:17px;margin:14px 0 4px;max-width:640px}
+.sub{color:#8b949e;font-size:14px;margin:0 0 20px}
+.cta{display:inline-block;background:#238636;color:#fff;padding:11px 20px;border-radius:10px;font-weight:600;text-decoration:none;margin:6px 8px 6px 0}
+.cta:hover{background:#2ea043} .ghost{background:#21262d;border:1px solid #30363d}
+h2.sec{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:#8b949e;margin:44px 0 16px;border-bottom:1px solid #21262d;padding-bottom:8px}
+.proj{background:#161b22;border:1px solid #30363d;border-radius:14px;padding:22px;margin-bottom:16px}
+.proj h3{margin:0 0 4px;font-size:19px}
+.proj .what{color:#8b949e;font-size:14px;margin:0 0 12px}
+.cs{font-size:14px;margin:10px 0} .cs b{color:#e6edf3}
+.links a{display:inline-block;margin:8px 12px 0 0;font-size:14px;font-weight:600}
+.live{color:#7ee787} .live::before{content:"\25CF  ";font-size:10px;vertical-align:middle}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chip{background:#21262d;color:#8b949e;font-size:12px;padding:3px 9px;border-radius:20px}
+.foot{color:#8b949e;font-size:14px;margin-top:46px;border-top:1px solid #21262d;padding-top:18px}
+a{color:#58a6ff;text-decoration:none} a:hover{text-decoration:underline}
+.about{color:#c9d1d9;font-size:15px;max-width:660px}
+</style></head><body><div class=wrap>
+
+<header>
+  <h1>Rolly Calma</h1>
+  <div class=role>Python developer · AI automation · finance tooling</div>
+  <p class=lede>I build small, <b>tested, deployed</b> tools end-to-end — and you can try every one below live, right now.</p>
+  <p class=sub>Self-taught developer with a finance/accounting background (NetSuite, Excel). Based in the Philippines · open to remote junior Python / AI-automation roles and project work.</p>
+  <a class=cta href="mailto:rolly.calma.0217@gmail.com">Hire me / work with me</a>
+  <a class="cta ghost" href="https://github.com/Ghraven" target=_blank>GitHub</a>
+  <a class="cta ghost" href="https://ghravenlabs.github.io/" target=_blank>More projects</a>
+</header>
+
+<h2 class=sec>Live projects — try them, don't take my word</h2>
+
+<div class=proj>
+  <h3>Website QA Auditor</h3>
+  <p class=what>Paste any URL → instant SEO / accessibility / mobile / social health check, scored A–F, with a client-ready report.</p>
+  <div class=cs><b>Problem:</b> small businesses lose search traffic and trust to invisible technical issues.
+  <b>Built:</b> a zero-dependency Python engine + web front-end that audits a page in seconds.
+  <b>Result:</b> used it to find real issues on live sites and turn them into client outreach.</div>
+  <div class=stack><span class=chip>Python</span><span class=chip>HTML parsing</span><span class=chip>stdlib only</span><span class=chip>web app</span></div>
+  <div class=links>
+    <a class=live href="https://github.com/GhravenLabs/Website-QA-Auditor" target=_blank>Live demo</a>
+    <a href="https://github.com/GhravenLabs/Website-QA-Auditor" target=_blank>Source</a>
+  </div>
+</div>
+
+<div class=proj>
+  <h3>Mini-RAG — chat with your document</h3>
+  <p class=what>Paste a document, ask a question → it retrieves the most relevant passages (TF-IDF + cosine), the core of Retrieval-Augmented Generation, in pure Python.</p>
+  <div class=cs><b>Problem:</b> RAG is the backbone of useful LLM apps but is usually buried under heavy frameworks.
+  <b>Built:</b> the retrieval pipeline from scratch — chunking, indexing, ranking — with an optional grounded-answer step.
+  <b>Result:</b> a clear, dependency-free demonstration of how retrieval actually works.</div>
+  <div class=stack><span class=chip>Python</span><span class=chip>RAG</span><span class=chip>TF-IDF</span><span class=chip>LLM</span></div>
+  <div class=links>
+    <a class=live href="https://github.com/GhravenLabs/Mini-RAG" target=_blank>Live demo</a>
+    <a href="https://github.com/GhravenLabs/Mini-RAG" target=_blank>Source</a>
+  </div>
+</div>
+
+<div class=proj>
+  <h3>AR/AP Autopilot</h3>
+  <p class=what>Automated accounts-receivable & payable for small accounting firms — invoice↔payment matching, AR aging, drafted collection emails, duplicate-bill detection — from a CSV export.</p>
+  <div class=cs><b>Problem:</b> small firms burn hours chasing receivables and re-checking supplier bills by hand.
+  <b>Built:</b> a Python engine with live Xero + QuickBooks connectors, a forgiving CSV loader, and a dashboard.
+  <b>Result:</b> packaged as a concierge service and taken to real firms (this is where my finance background compounds with code).</div>
+  <div class=stack><span class=chip>Python</span><span class=chip>Xero/QuickBooks API</span><span class=chip>finance automation</span><span class=chip>tested</span></div>
+  <div class=links>
+    <a class=live href="arap-demo/" target=_blank>Live sample</a>
+  </div>
+</div>
+
+<h2 class=sec>About</h2>
+<p class=about>I came to programming from accounting, so I build for the boring, high-value problems — reconciliation, reporting, automation — and I finish things: every project above is tested and runnable, not a half-built demo. I work the way a small team needs: read the requirement, build the smallest thing that solves it, verify it works, ship it. Comfortable with Python, web front-ends, APIs over scraping, LLM/RAG tooling, and AI coding workflows.</p>
+
+<div class=foot>
+  <b>Rolly Calma</b> · <a href="mailto:rolly.calma.0217@gmail.com">rolly.calma.0217@gmail.com</a> ·
+  <a href="https://github.com/Ghraven" target=_blank>github.com/Ghraven</a><br>
+  <span style="font-size:12px">Open to remote junior Python / AI-automation roles and freelance project work.</span>
+</div>
+</div></body></html>

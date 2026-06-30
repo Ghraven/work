@@ -1,0 +1,169 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>AR / AP Autopilot — AR/AP Autopilot</title>
+<style>
+  body { font-family:-apple-system,Segoe UI,Roboto,sans-serif; margin:0;
+          background:#eef3fa; color:#13233b; }
+  .app { display:flex; min-height:100vh; align-items:stretch; }
+  .side { width:214px; flex-shrink:0; background:#0f2747; color:#cdd9ea;
+           padding:20px 14px; }
+  .side .brand { display:flex; align-items:center; gap:10px; color:#fff;
+           font-weight:700; font-size:16px; margin:2px 6px 22px; }
+  .side .blogo { width:32px; height:32px; border-radius:9px; background:#0f9e75;
+           color:#fff; display:flex; align-items:center; justify-content:center;
+           font-weight:800; font-size:14px; }
+  .side a { display:flex; align-items:center; gap:11px; color:#cdd9ea;
+           text-decoration:none; padding:10px 12px; border-radius:8px;
+           font-size:14px; margin-bottom:3px; }
+  .side a:hover { background:#16335a; color:#fff; }
+  .side a.on { background:#1b3a63; color:#fff; }
+  .side .ico { width:18px; text-align:center; opacity:.9; }
+  .side .scap { color:#6f87a6; font-size:11px; text-transform:uppercase;
+           letter-spacing:.08em; margin:18px 12px 8px; }
+  .main { flex:1; min-width:0; padding:26px 34px; max-width:1120px; }
+  .view { display:none; }
+  .view.active { display:block; }
+  .mhead { display:flex; align-items:flex-end; justify-content:space-between;
+           gap:12px; margin-bottom:18px; flex-wrap:wrap; }
+  .tag { font-size:12px; color:#5b6b80; background:#fff; border:1px solid #e3e9f2;
+           border-radius:20px; padding:5px 12px; }
+  h1 { font-size:24px; margin:0 0 2px; color:#0f2747; }
+  h2.sec { font-size:18px; margin:34px 0 6px; padding-top:16px;
+            border-top:1px solid #dbe3ee; color:#0f2747; }
+  h3 { font-size:14px; margin:20px 0 8px; color:#374151; }
+  .sub { color:#656d76; margin-bottom:18px; font-size:14px; }
+  .actions { display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap; }
+  .btn { border:1px solid #d6deea; background:#fff; border-radius:9px; padding:9px 14px;
+          font-size:13px; font-weight:600; cursor:pointer; text-decoration:none;
+          color:#13233b; display:inline-block; }
+  .btn:hover { background:#f3f6fb; }
+  .btn.primary { background:#0f9e75; color:#fff; border-color:#0f9e75; }
+  .btn.primary:hover { background:#0b7d5c; }
+  .badge { border-radius:20px; padding:2px 10px; font-size:12px; font-weight:600; }
+  .confwrap { display:flex; align-items:center; gap:6px; }
+  .confbar { width:54px; height:6px; background:#eaeef2; border-radius:4px; overflow:hidden; }
+  .conffill { height:100%; }
+  .cards { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:22px; }
+  .card { background:#fff; border:1px solid #e3e9f2; border-radius:14px;
+           padding:16px 18px; flex:1; min-width:130px; }
+  .card .n { font-size:28px; font-weight:800; color:#0f2747; }
+  .card .l { color:#5b6b80; font-size:12px; margin-top:2px; }
+  table { width:100%; border-collapse:collapse; background:#fff; border:1px solid #d0d7de;
+           border-radius:10px; overflow:hidden; margin-bottom:6px; }
+  th,td { text-align:left; padding:9px 12px; border-bottom:1px solid #eaeef2;
+           font-size:13px; vertical-align:top; }
+  th { background:#f6f8fa; font-size:12px; text-transform:uppercase; color:#656d76; }
+  .draft { background:#fff; border:1px solid #d0d7de; border-radius:10px;
+            padding:14px 16px; margin-bottom:12px; }
+  .draft-body { white-space:pre-wrap; background:#f6f8fa; border-radius:8px;
+                 padding:12px; font-size:13px; margin:6px 0 0; }
+  .pill { background:#ddf4ff; color:#0969da; border-radius:20px; padding:2px 10px;
+           font-size:12px; margin-right:6px; }
+  .alert { background:#fff8c5; border:1px solid #eac54f; border-radius:10px;
+            padding:12px 16px; }
+  .alert ul { margin:8px 0 0; padding-left:18px; }
+  .log { margin:8px 0 4px; }
+  .logline { background:#fff; border:1px solid #d0d7de; border-left:4px solid #8b949e;
+              border-radius:6px; padding:7px 12px; font-size:13px; margin-bottom:6px; }
+  .logline.ok { border-left-color:#1a7f37; }
+  .logline.err { border-left-color:#cf222e; }
+  .roi { background:#e6f4ef; border:1px solid #bfe6d6; border-radius:12px;
+          padding:12px 16px; margin-bottom:14px; font-size:14px; color:#0b5f48; }
+  .roi-note { display:block; font-size:11px; color:#5f9a85; margin-top:2px; }
+  .panel { display:flex; gap:16px; flex-wrap:wrap; background:#fff;
+            border:1px solid #d0d7de; border-radius:12px; padding:18px 20px;
+            margin-bottom:14px; }
+  .panelcol { flex:1; min-width:280px; }
+  .panelcol label { display:block; font-size:12.5px; color:#374151; margin:8px 0;
+            font-weight:600; }
+  .panelcol input[type=file] { display:block; margin-top:4px; font-weight:400;
+            font-size:12px; }
+  .hint { color:#6b7785; font-size:12px; margin:4px 0 10px; }
+  .opt { color:#8b949e; font-weight:400; }
+  .vresult { margin:6px 0 18px; }
+  .vcards { display:flex; gap:12px; flex-wrap:wrap; margin:8px 0 12px; }
+  .vcard { background:#fff; border:1px solid #d0d7de; border-radius:10px;
+            padding:12px 16px; flex:1; min-width:160px; }
+  .vcard .vn { font-size:22px; font-weight:700; }
+  .vcard .vl { color:#6b7785; font-size:12px; }
+  .foot { color:#8b949e; font-size:12px; margin-top:30px; }
+</style></head>
+<body>
+  <div class="app">
+    <aside class="side">
+      <div class="brand"><div class="blogo">A</div>AR / AP Autopilot</div>
+      <div class="scap">Menu</div>
+      <a class="on" href="#top"><span class="ico">&#9635;</span> Dashboard</a><a href="#ar"><span class="ico">&#9993;</span> Collections</a><a href="#ap"><span class="ico">&#10697;</span> Payment run</a><a href="#actions"><span class="ico">&#8681;</span> Export</a>
+    </aside>
+    <main class="main" id="top">
+      <div class="mhead">
+        <div>
+          <h1 id="vtitle">Dashboard</h1>
+          <div class="sub">Demo Company (Sample Data) &middot; run date 2026-06-05</div>
+        </div>
+        <div class="tag">AR + AP Autopilot &middot; report</div>
+      </div>
+      <div class="cards"><div class="card"><div class="n" style="color:#1a7f37">3</div><div class="l">AR auto-matched<br>(8,076 ready)</div></div><div class="card"><div class="n" style="color:#bf8700">2</div><div class="l">AR review</div></div><div class="card"><div class="n" style="color:#cf222e">1</div><div class="l">AR exceptions</div></div><div class="card"><div class="n">3</div><div class="l">Collection drafts</div></div><div class="card"><div class="n" style="color:#cf222e">1</div><div class="l">Duplicate bills<br>(6,200 at risk)</div></div><div class="card"><div class="n">7,045</div><div class="l">Payment run<br>(7,045 overdue)</div></div></div>
+    <div class="roi">&#9201; <strong>&asymp; 1.0 hours of manual work automated</strong> this run &nbsp;&middot;&nbsp; &#128737; <strong>6,200 in duplicate payments caught</strong> before going out
+      <span class="roi-note">estimates based on typical manual handling times</span>
+    </div>
+    <div class="actions" id="actions">
+      <button class="btn primary">&#10003; Approve all auto-matches (3)</button>
+      <button class="btn">&#9993; Send 3 collection drafts</button>
+      <button class="btn">&#128197; Schedule payment run (2)</button>
+      <button class="btn">&#8681; Export CSV</button>
+    </div><div id="ar">
+    <h2 class="sec">Accounts Receivable</h2>
+    <h3>Payment matching</h3><table><tr><th>Status</th><th>Date</th><th>Payer</th><th>Amount</th><th>Invoice(s)</th><th>Conf.</th><th>Why</th></tr><tr><td><span class="badge" style="background:#0f9e751a;color:#0f9e75">Auto-match</span></td><td>2026-05-28</td><td>Brightwave Media Ltd</td><td>USD 4,200.00</td><td>INV-1001</td><td><div class="confwrap"><div class="confbar"><div class="conffill" style="width:100%;background:#0f9e75"></div></div><span style="color:#0f9e75;font-size:12px">100%</span></div></td><td><span style="font-size:12px;color:#555">&bull; Exact amount match (USD 4,200.00)<br>&bull; Invoice number &#x27;INV-1001&#x27; found in bank reference<br>&bull; Payer name matches customer &#x27;Brightwave Media Ltd&#x27;<br>&bull; Paid 32 days after issue (plausible)</span></td></tr><tr><td><span class="badge" style="background:#0f9e751a;color:#0f9e75">Auto-match</span></td><td>2026-06-01</td><td>NORTHSTAR LOG</td><td>USD 1,875.50</td><td>INV-1002</td><td><div class="confwrap"><div class="confbar"><div class="conffill" style="width:100%;background:#0f9e75"></div></div><span style="color:#0f9e75;font-size:12px">100%</span></div></td><td><span style="font-size:12px;color:#555">&bull; Exact amount match (USD 1,875.50)<br>&bull; Invoice number &#x27;INV-1002&#x27; found in bank reference<br>&bull; Payer name matches customer &#x27;Northstar Logistics&#x27;<br>&bull; Paid 31 days after issue (plausible)</span></td></tr><tr><td><span class="badge" style="background:#bf87001a;color:#bf8700">Needs review</span></td><td>2026-05-21</td><td>Helix Software</td><td>USD 4,500.00</td><td>INV-1003</td><td><div class="confwrap"><div class="confbar"><div class="conffill" style="width:42%;background:#bf8700"></div></div><span style="color:#bf8700;font-size:12px">42%</span></div></td><td><span style="font-size:12px;color:#555">&bull; Possible partial payment: 4,500.00 of 9,000.00 due<br>&bull; Payer name matches customer &#x27;Helix Software Inc&#x27;<br>&bull; Paid 35 days after issue (plausible)</span></td></tr><tr><td><span class="badge" style="background:#0f9e751a;color:#0f9e75">Auto-match</span></td><td>2026-05-16</td><td>Coastal Retail Group</td><td>USD 2,000.00</td><td>INV-1004, INV-1005</td><td><div class="confwrap"><div class="confbar"><div class="conffill" style="width:90%;background:#0f9e75"></div></div><span style="color:#0f9e75;font-size:12px">90%</span></div></td><td><span style="font-size:12px;color:#555">&bull; 2 invoices sum exactly to the payment (INV-1004, INV-1005)<br>&bull; All for customer matching &#x27;Coastal Retail Group&#x27;</span></td></tr><tr><td><span class="badge" style="background:#cf222e1a;color:#cf222e">Exception</span></td><td>2026-06-02</td><td>Unknown Sender XYZ</td><td>USD 640.00</td><td>&mdash;</td><td><div class="confwrap"><div class="confbar"><div class="conffill" style="width:17%;background:#cf222e"></div></div><span style="color:#cf222e;font-size:12px">17%</span></div></td><td><span style="font-size:12px;color:#555">&bull; No confident match found</span></td></tr><tr><td><span class="badge" style="background:#bf87001a;color:#bf8700">Needs review</span></td><td>2026-06-04</td><td>Q. Analytics</td><td>USD 500.00</td><td>INV-1009</td><td><div class="confwrap"><div class="confbar"><div class="conffill" style="width:75%;background:#bf8700"></div></div><span style="color:#bf8700;font-size:12px">75%</span></div></td><td><span style="font-size:12px;color:#555">&bull; Exact amount match (USD 500.00)<br>&bull; Payer name matches customer &#x27;Quantum Analytics&#x27;<br>&bull; Paid 29 days after issue (plausible)</span></td></tr></table>
+    <h3>AR aging</h3><table><tr><th>Bucket</th><th>Open invoices</th><th>Amount</th></tr>
+      <tr><td>Not yet due</td><td>1</td><td>2,100.00</td></tr><tr><td>1-30 days</td><td>7</td><td>18,075.50</td></tr><tr><td>31-60 days</td><td>1</td><td>3,300.00</td></tr><tr><td>90+ days</td><td>1</td><td>15,500.00</td></tr></table>
+    <h3>Collection drafts (3)</h3>
+        <div class="draft"><div class="draft-head">
+          <span class="pill">90+ days</span><strong>Vertex Builders
+          </strong> &mdash; INV-1007 &middot; USD
+          15,500.00 &middot; 100 days overdue</div>
+          <div class="draft-subject"><b>Subject:</b> Final notice: invoice INV-1007 (USD 15,500.00) - 100 days overdue</div>
+          <pre class="draft-body">Hi Vertex Builders,
+
+This is a final notice regarding invoice INV-1007 for USD 15,500.00, now 100 days overdue (due 2026-02-25). Please remit payment in full within 7 days to avoid further action and possible suspension of services.
+
+If you have already paid, please send remittance details so we can reconcile your account.
+
+Regards,
+Accounts Team</pre></div>
+        <div class="draft"><div class="draft-head">
+          <span class="pill">31-60 days</span><strong>Pinnacle Consulting
+          </strong> &mdash; INV-1006 &middot; USD
+          3,300.00 &middot; 45 days overdue</div>
+          <div class="draft-subject"><b>Subject:</b> Overdue invoice INV-1006 - 45 days past due</div>
+          <pre class="draft-body">Hi Pinnacle Consulting,
+
+Our records show invoice INV-1006 for USD 3,300.00 is now 45 days past its due date of 2026-04-21. Could you let us know when we can expect payment?
+
+If there&#x27;s an issue with the invoice, please reply and we&#x27;ll sort it out quickly.
+
+Kind regards,
+Accounts Team</pre></div>
+        <div class="draft"><div class="draft-head">
+          <span class="pill">1-30 days</span><strong>Summit Partners
+          </strong> &mdash; INV-1010 &middot; USD
+          500.00 &middot; 1 days overdue</div>
+          <div class="draft-subject"><b>Subject:</b> Friendly reminder: invoice INV-1010 (USD 500.00)</div>
+          <pre class="draft-body">Hi Summit Partners,
+
+Just a quick note that invoice INV-1010 for USD 500.00 was due on 2026-06-04. If it&#x27;s already on its way, thank you and please ignore this. Otherwise, you can settle it at your convenience.
+
+Happy to resend the invoice or answer any questions.
+
+Best regards,
+Accounts Team</pre></div></div><div id="ap">
+    <h2 class="sec">Accounts Payable</h2>
+    <h3>Bill / payment matching</h3><table><tr><th>Status</th><th>Date</th><th>Vendor</th><th>Amount</th><th>Bill(s)</th><th>Conf.</th><th>Why</th></tr><tr><td><span class="badge" style="background:#0f9e751a;color:#0f9e75">Auto-match</span></td><td>2026-06-03</td><td>AMAZON WEB SERVICES</td><td>USD 2,360.00</td><td>AWS-3387</td><td><div class="confwrap"><div class="confbar"><div class="conffill" style="width:100%;background:#0f9e75"></div></div><span style="color:#0f9e75;font-size:12px">100%</span></div></td><td><span style="font-size:12px;color:#555">&bull; Exact amount match (USD 2,360.00)<br>&bull; Invoice number &#x27;AWS-3387&#x27; found in bank reference<br>&bull; Payer name matches customer &#x27;Amazon Web Services&#x27;<br>&bull; Paid 18 days after issue (plausible)</span></td></tr><tr><td><span class="badge" style="background:#bf87001a;color:#bf8700">Needs review</span></td><td>2026-06-02</td><td>Coastal Freight Co</td><td>USD 1,500.00</td><td>FREIGHT-55</td><td><div class="confwrap"><div class="confbar"><div class="conffill" style="width:42%;background:#bf8700"></div></div><span style="color:#bf8700;font-size:12px">42%</span></div></td><td><span style="font-size:12px;color:#555">&bull; Possible partial payment: 1,500.00 of 3,000.00 due<br>&bull; Payer name matches customer &#x27;Coastal Freight Co&#x27;<br>&bull; Paid 27 days after issue (plausible)</span></td></tr><tr><td><span class="badge" style="background:#cf222e1a;color:#cf222e">Exception</span></td><td>2026-06-04</td><td>Unrecognised Vendor</td><td>USD 280.00</td><td>&mdash;</td><td><div class="confwrap"><div class="confbar"><div class="conffill" style="width:17%;background:#cf222e"></div></div><span style="color:#cf222e;font-size:12px">17%</span></div></td><td><span style="font-size:12px;color:#555">&bull; No confident match found</span></td></tr></table>
+    <h3>Duplicate-bill detection</h3><div class="alert"><strong>&#9888; 1 suspected duplicate bill(s)</strong><ul><li><strong>Hartwell Legal LLP</strong> &mdash; 2 bills (LEGAL-204, LEGAL-204) for USD 6,200.00 each &middot; <span style="color:#cf222e">same vendor + amount + identical bill number</span> &middot; USD 6,200.00 at risk</li></ul></div>
+    <h3>Payment run &mdash; next 14 days
+      (7,045.20)</h3><table><tr><th>Status</th><th>Due</th><th>Vendor</th><th>Bill</th><th>Amount</th><th>Note</th></tr><tr><td><span style="color:#cf222e">overdue</span></td><td>2026-05-24</td><td>Hartwell Legal LLP</td><td>LEGAL-204</td><td>USD 6,200.00</td><td>12 days overdue</td></tr><tr><td><span style="color:#cf222e">overdue</span></td><td>2026-05-30</td><td>Acme Office Supplies</td><td>ACME-7741</td><td>USD 845.20</td><td>6 days overdue</td></tr></table></div>
+      <div class="foot">Generated by AR/AP Autopilot. All matches, emails and
+      payment runs are drafts for human approval &mdash; nothing is applied, sent,
+      or paid automatically.</div>
+    </main>
+  </div>
+</body></html>
