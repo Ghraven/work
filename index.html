@@ -1,103 +1,782 @@
 <!DOCTYPE html>
-<html lang=en><head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<title>Rolly Calma — Python developer · AI automation · finance tooling</title>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rolly Calma — Python Developer & AI Automation Builder</title>
 <link rel="canonical" href="https://rollycalma.com/">
-<meta property=og:type content="website">
-<meta property=og:url content="https://rollycalma.com/">
-<meta property=og:title content="Rolly Calma - Python Developer, AI Automation, Finance Tooling">
-<meta property=og:description content="Self-taught Python developer with a finance background. I build tested, deployed tools: AR/AP automation, website QA, RAG. Try every one live.">
-<meta property=og:image content="https://ghraven.github.io/og-image.jpg">
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:title content="Rolly Calma - Python Developer, AI Automation, Finance Tooling">
-<meta name=twitter:description content="Self-taught Python developer with a finance background. I build tested, deployed tools: AR/AP automation, website QA, RAG. Try every one live.">
-<meta name=twitter:image content="https://ghraven.github.io/og-image.jpg">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23238636%22/><text x=%2250%22 y=%2268%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Segoe UI,sans-serif%22 font-weight=%22700%22>RC</text></svg>">
-<meta name=description content="Self-taught Python developer with a finance background. I build tested, deployed tools: AR/AP automation, website QA, RAG. Try every one live.">
-<style>
-:root{color-scheme:dark}
-*{box-sizing:border-box}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d1117;color:#e6edf3;margin:0;line-height:1.6}
-.wrap{max-width:880px;margin:0 auto;padding:48px 20px}
-header h1{font-size:34px;margin:0 0 6px;letter-spacing:-.02em}
-.role{color:#7ee787;font-weight:600;font-size:16px}
-.lede{color:#c9d1d9;font-size:17px;margin:14px 0 4px;max-width:640px}
-.sub{color:#8b949e;font-size:14px;margin:0 0 20px}
-.cta{display:inline-block;background:#238636;color:#fff;padding:11px 20px;border-radius:10px;font-weight:600;text-decoration:none;margin:6px 8px 6px 0}
-.cta:hover{background:#2ea043} .ghost{background:#21262d;border:1px solid #30363d}
-h2.sec{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:#8b949e;margin:44px 0 16px;border-bottom:1px solid #21262d;padding-bottom:8px}
-.proj{background:#161b22;border:1px solid #30363d;border-radius:14px;padding:22px;margin-bottom:16px}
-.proj h3{margin:0 0 4px;font-size:19px}
-.proj .what{color:#8b949e;font-size:14px;margin:0 0 12px}
-.cs{font-size:14px;margin:10px 0} .cs b{color:#e6edf3}
-.links a{display:inline-block;margin:8px 12px 0 0;font-size:14px;font-weight:600}
-.live{color:#7ee787} .live::before{content:"\25CF  ";font-size:10px;vertical-align:middle}
-.stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.chip{background:#21262d;color:#8b949e;font-size:12px;padding:3px 9px;border-radius:20px}
-.foot{color:#8b949e;font-size:14px;margin-top:46px;border-top:1px solid #21262d;padding-top:18px}
-a{color:#58a6ff;text-decoration:none} a:hover{text-decoration:underline}
-.about{color:#c9d1d9;font-size:15px;max-width:660px}
-</style></head><body><div class=wrap>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23238636%22/><text x=%2250%22 y=%2268%22 font-size=%2246%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Segoe UI,sans-serif%22 font-weight=%22700%22>RC</text></svg>">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","dateModified":"2026-07-08","mainEntity":{"@type":"Person","name":"Rolly Calma","alternateName":"Raven","jobTitle":"Python Developer","description":"Self-taught Python developer with a finance/accounting background, building AR/AP automation and website-QA tooling.","url":"https://rollycalma.com/","email":"rolly.calma.0217@gmail.com","knowsAbout":["Python","AI automation","Accounts receivable automation","Accounts payable automation","Website QA","Retrieval-Augmented Generation","Finance automation"],"address":{"@type":"PostalAddress","addressCountry":"PH"},"sameAs":["https://github.com/Ghraven","https://github.com/GhravenLabs","https://ghravenlabs.github.io/","https://www.linkedin.com/in/rollycalma/"]}}</script>
+  <meta name="description" content="Portfolio of Rolly Calma, a Python developer building AI automation, local LLM tools, and open-source fixes across repos with 1138k+ combined stars." />
+  
+  <!-- Open Graph / LinkedIn / Discord -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rollycalma.com/" />
+  <meta property="og:title" content="Rolly Calma — Python Developer & AI Automation Builder" />
+  <meta property="og:description" content="Python automation, AI tools, local LLM workflows, and open-source contributions across repos with 1138k+ combined stars." />
+  <meta property="og:image" content="https://rollycalma.com/og-image.jpg" />
 
-<header>
-  <h1>Rolly Calma</h1>
-  <div class=role>Python developer · AI automation · finance tooling</div>
-  <p class=lede>I build small, <b>tested, deployed</b> tools end-to-end — and you can try every one below live, right now.</p>
-  <p class=sub>Self-taught developer with a finance/accounting background (NetSuite, Excel). Based in the Philippines · open to remote junior Python / AI-automation roles and project work.</p>
-  <a class=cta href="mailto:rolly.calma.0217@gmail.com">Hire me / work with me</a>
-  <a class="cta ghost" href="https://github.com/Ghraven" target=_blank>GitHub</a>
-  <a class="cta ghost" href="https://ghravenlabs.github.io/" target=_blank>More projects</a>
-</header>
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://rollycalma.com/" />
+  <meta property="twitter:title" content="Rolly Calma — Python Developer & AI Automation Builder" />
+  <meta property="twitter:description" content="Python automation, AI tools, local LLM workflows, and open-source contributions across repos with 1138k+ combined stars." />
+  <meta property="twitter:image" content="https://rollycalma.com/og-image.jpg" />
 
-<h2 class=sec>Live projects — try them, don't take my word</h2>
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>" />
 
-<div class=proj>
-  <h3>Website QA Auditor</h3>
-  <p class=what>Paste any URL → instant SEO / accessibility / mobile / social health check, scored A–F, with a client-ready report.</p>
-  <div class=cs><b>Problem:</b> small businesses lose search traffic and trust to invisible technical issues.
-  <b>Built:</b> a zero-dependency Python engine + web front-end that audits a page in seconds.
-  <b>Result:</b> used it to find real issues on live sites and turn them into client outreach.</div>
-  <div class=stack><span class=chip>Python</span><span class=chip>HTML parsing</span><span class=chip>stdlib only</span><span class=chip>web app</span></div>
-  <div class=links>
-    <a class=live href="https://github.com/GhravenLabs/Website-QA-Auditor" target=_blank>Live demo</a>
-    <a href="https://github.com/GhravenLabs/Website-QA-Auditor" target=_blank>Source</a>
+  <!-- Theme: runs before paint to avoid flash -->
+  <script>
+    (function () {
+      document.documentElement.classList.add('js');
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-loading">
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">RC<span class="accent">.</span></a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#process" class="nav-link">Process</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#services" class="nav-link">Services</a><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <span class="icon-sun">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          </span>
+          <span class="icon-moon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </span>
+        </button>
+
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid" aria-hidden="true"></div>
+    <canvas class="hero-constellation" id="hero-constellation" aria-hidden="true"></canvas>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Open to junior Python / AI automation roles
+      </div>
+      <p class="hero-greeting">Hello, I'm</p>
+      <h1 class="hero-name">Rolly Calma</h1>
+      <div class="hero-tagline-wrap">
+        <span class="hero-tagline" id="typewriter"></span><span class="cursor" aria-hidden="true">|</span>
+      </div>
+      <p class="hero-sub">
+        I build practical automation, AI tools, and developer workflows, backed by
+        <strong><span data-stat="prs">195</span> PRs opened</strong>, <strong><span data-stat="merged">59</span> merged PRs</strong>, and contributions across repos with <strong><span data-stat="stars">1138k+</span> combined stars</strong>.
+      </p>
+      <div class="hero-proof-grid" aria-label="Open source portfolio highlights">
+        <div class="hero-proof">
+          <span class="hero-proof-num" data-stat="prs">195</span>
+          <span class="hero-proof-label">PRs opened</span>
+        </div>
+        <div class="hero-proof hero-proof--warm">
+          <span class="hero-proof-num" data-stat="repos">30</span>
+          <span class="hero-proof-label">repos contributed</span>
+        </div>
+        <div class="hero-proof hero-proof--green">
+          <span class="hero-proof-num" data-stat="stars">1138k+</span>
+          <span class="hero-proof-label">stars touched</span>
+        </div>
+      </div>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#services" class="btn btn-secondary">Services &amp; Live Demos</a>
+        <a href="https://github.com/Ghraven" class="btn btn-secondary" target="_blank" rel="noopener">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+          </svg>
+          GitHub
+        </a>
+        <!-- CV Download — uncomment and add file when resume is ready
+        <a href="./Rolly_Calma_CV.pdf" class="btn btn-outline" download>
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download CV
+        </a>
+        -->
+      </div>
+      <div class="hero-live-panel" aria-label="Current build loop">
+        <div class="live-panel-header">
+          <span class="live-kicker">Live build loop</span>
+          <span class="live-status"><span class="live-dot"></span> shipping small verified fixes</span>
+        </div>
+        <div class="live-steps">
+          <span class="live-step">Find</span>
+          <span class="live-step">Patch</span>
+          <span class="live-step">Verify</span>
+          <span class="live-step">Follow up</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text animate-on-scroll">
+          <p>
+            Self-taught developer from the Philippines. I got into programming because I was tired of doing repetitive things by hand — so I automated them. That became building AI systems, contributing to open-source projects with tens of thousands of stars, and running multi-agent LLM pipelines on local hardware.
+          </p>
+          <p>
+            I have opened <span data-stat="prs">195</span> PRs and contributed across <span data-stat="repos">30</span> repositories, with <span data-stat="merged">59</span> merged PRs in production codebases. The work spans bug fixes, tests, docs, refactors, and developer tooling across projects like pydantic-ai, chroma, flowsint, langchain, llama_index, mem0, and agno.
+          </p>
+          <p class="about-ai-note">
+            I use AI-assisted workflows to build and ship faster — all projects are designed, tested, and maintained by me.
+          </p>
+          <div class="about-cards">
+            <div class="about-card">
+              <span class="about-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+              </span><span>Philippines</span>
+            </div>
+            <div class="about-card">
+              <span class="about-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                </svg>
+              </span><span>Developer &amp; Builder</span>
+            </div>
+            <div class="about-card">
+              <span class="about-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+              </span><span>Self-taught, 42 OSS PRs merged</span>
+            </div>
+            <div class="about-card">
+              <span class="about-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+              </span><span>Python · C# · Docker · Linux</span>
+            </div>
+          </div>
+          <div class="currently-building animate-on-scroll">
+            <span class="now-dot"></span>
+            <div>
+              <span class="now-label">Currently building</span>
+              <span class="now-text">Multi-agent LLM workspaces, local LLM workflows, and sharper developer utilities for automation-heavy Python projects.</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-right animate-on-scroll">
+          <div class="avatar-wrap">
+            <div class="avatar-placeholder">RC</div>
+          </div>
+          <div class="terminal-card">
+            <div class="terminal-bar">
+              <span class="t-dot t-red"></span>
+              <span class="t-dot t-yellow"></span>
+              <span class="t-dot t-green"></span>
+              <span class="t-title">~/about.py</span>
+            </div>
+            <div class="terminal-body">
+              <p><span class="t-kw">def</span> <span class="t-fn">get_developer</span>():</p>
+              <p>&nbsp;&nbsp;<span class="t-kw">return</span> {</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"name"</span>: <span class="t-str">"Rolly Calma"</span>,</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"stack"</span>: [<span class="t-str">"Python"</span>, <span class="t-str">"Flask"</span>, <span class="t-str">"Docker"</span>],</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"prs_opened"</span>: <span class="t-num" data-stat="prs">195</span>,</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"merged_prs"</span>: <span class="t-num" data-stat="merged">59</span>,</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"gpu"</span>: <span class="t-str">"local LLMs ✓"</span>,</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"status"</span>: <span class="t-str t-green-text">"open_to_work"</span>,</p>
+              <p>&nbsp;&nbsp;}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESS ===================== -->
+  <section class="section process-section" id="process">
+    <div class="container">
+      <div class="process-layout">
+        <div class="process-copy animate-on-scroll">
+          <span class="section-eyebrow">How I Work</span>
+          <h2 class="section-title section-title--left">Small fixes, visible progress, clean follow-through</h2>
+          <p class="process-sub">
+            I borrowed this from good design tools: show the work while it is happening. My best PRs are small enough to review quickly, but complete enough to include the bug, the fix, and the verification trail.
+          </p>
+        </div>
+        <div class="process-board animate-on-scroll" aria-label="Contribution workflow">
+          <div class="process-rail" aria-hidden="true"></div>
+          <article class="process-card">
+            <span class="process-index">01</span>
+            <h3>Find the edge</h3>
+            <p>Look for concrete issues: deprecated APIs, encoding bugs, async loop mistakes, schema mismatches, and missing coverage.</p>
+          </article>
+          <article class="process-card">
+            <span class="process-index">02</span>
+            <h3>Patch narrowly</h3>
+            <p>Change the smallest surface that fixes the behavior, matching the repo style instead of inventing a new pattern.</p>
+          </article>
+          <article class="process-card">
+            <span class="process-index">03</span>
+            <h3>Verify locally</h3>
+            <p>Run focused checks, compile touched modules, and explain why broader tests were or were not needed.</p>
+          </article>
+          <article class="process-card">
+            <span class="process-index">04</span>
+            <h3>Stay with review</h3>
+            <p>Thank maintainers, handle bot process requests, and follow up calmly when CI or review finds something real.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT I BUILD ===================== -->
+  <section class="services-section">
+    <div class="container">
+      <div class="services-grid">
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Python Automation</h3>
+          <p class="service-desc">Scripts, pipelines, and bots that run unattended — from file processing workflows to multi-step API integrations.</p>
+        </div>
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="6" height="6"/><rect x="4" y="4" width="16" height="16" rx="2"/>
+              <line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/>
+              <line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/>
+              <line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/>
+              <line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/>
+            </svg>
+          </div>
+          <h3 class="service-title">AI-Powered Tools</h3>
+          <p class="service-desc">Multi-agent systems, local LLM setups, and practical AI tools using Ollama and Claude API — production-ready, not just demos.</p>
+        </div>
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Web Apps &amp; APIs</h3>
+          <p class="service-desc">Flask backends, REST APIs, and real-time streaming apps with SSE — from working prototype to deployed and running.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== OPEN SOURCE ===================== -->
+  <section class="oss-section">
+    <div class="container">
+      <div class="oss-inner animate-on-scroll">
+        <div class="oss-heading">
+          <span class="oss-eyebrow">Open Source Contributions</span>
+          <h2 class="oss-title">Code merged into projects used by thousands of developers</h2>
+          <p class="oss-sub"><span data-stat="prs">195</span> PRs opened across <span data-stat="repos">30</span> contributed repos, including <span data-stat="merged">59</span> merged fixes, tests, docs, and refactors. Small, practical changes that make maintained projects easier to use.</p>
+        </div>
+        <div class="oss-proof-list">
+          <div class="oss-proof-item">
+            <span class="oss-proof-kicker">Recent pattern</span>
+            <strong>Low-risk fixes with verification</strong>
+            <span>Deprecation updates, missing edge cases, docs corrections, and targeted tests.</span>
+          </div>
+          <div class="oss-proof-item">
+            <span class="oss-proof-kicker">Contributor signal</span>
+            <strong>Works inside existing maintainers' style</strong>
+            <span>Small PRs, clear repro steps, humble review responses, and local test notes.</span>
+          </div>
+        </div>
+        <div class="oss-repos">
+          <a href="https://github.com/pydantic/pydantic-ai" class="oss-repo" target="_blank" rel="noopener">
+            <span class="oss-repo-name">pydantic-ai</span>
+            <span class="oss-repo-stars">⭐ 17k+</span>
+          </a>
+          <a href="https://github.com/langchain-ai/langchain" class="oss-repo" target="_blank" rel="noopener">
+            <span class="oss-repo-name">langchain</span>
+            <span class="oss-repo-stars">⭐ 100k+</span>
+          </a>
+          <a href="https://github.com/microsoft/autogen" class="oss-repo" target="_blank" rel="noopener">
+            <span class="oss-repo-name">autogen</span>
+            <span class="oss-repo-stars">⭐ 58k+</span>
+          </a>
+          <a href="https://github.com/openai/openai-python" class="oss-repo" target="_blank" rel="noopener">
+            <span class="oss-repo-name">openai-python</span>
+            <span class="oss-repo-stars">⭐ 31k+</span>
+          </a>
+          <a href="https://github.com/chroma-core/chroma" class="oss-repo" target="_blank" rel="noopener">
+            <span class="oss-repo-name">chroma</span>
+            <span class="oss-repo-stars">⭐ 28k</span>
+          </a>
+          <a href="https://github.com/reconurge/flowsint" class="oss-repo" target="_blank" rel="noopener">
+            <span class="oss-repo-name">flowsint</span>
+            <span class="oss-repo-stars">⭐ 3.5k</span>
+          </a>
+          <a href="https://github.com/voxel51/fiftyone" class="oss-repo" target="_blank" rel="noopener">
+            <span class="oss-repo-name">fiftyone</span>
+            <span class="oss-repo-stars">⭐ 10k</span>
+          </a>
+          <a href="https://github.com/ollama/ollama-python" class="oss-repo" target="_blank" rel="noopener">
+            <span class="oss-repo-name">ollama-python</span>
+            <span class="oss-repo-stars">⭐ 10k</span>
+          </a>
+          <a href="https://github.com/Tracer-Cloud/opensre" class="oss-repo" target="_blank" rel="noopener">
+            <span class="oss-repo-name">opensre</span>
+            <span class="oss-repo-stars">⭐ 3.6k</span>
+          </a>
+          <a href="https://github.com/agno-agi/agno" class="oss-repo" target="_blank" rel="noopener">
+            <span class="oss-repo-name">agno</span>
+            <span class="oss-repo-stars">⭐ 40k</span>
+          </a>
+          <a href="https://github.com/run-llama/llama_index" class="oss-repo" target="_blank" rel="noopener">
+            <span class="oss-repo-name">llama_index</span>
+            <span class="oss-repo-stars">⭐ 50k</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section class="section skills-section" id="skills">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Skills &amp; Tools</h2>
+      <div class="skills-grid">
+
+        <div class="skill-group animate-on-scroll">
+          <h3 class="skill-group-title">
+            <span class="skill-group-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </span> Languages
+          </h3>
+          <div class="badge-list">
+            <span class="badge">Python</span>
+            <span class="badge">C#</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">HTML/CSS</span>
+            <span class="badge">Bash</span>
+          </div>
+        </div>
+
+        <div class="skill-group animate-on-scroll">
+          <h3 class="skill-group-title">
+            <span class="skill-group-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </span> Tools &amp; Infrastructure
+          </h3>
+          <div class="badge-list">
+            <span class="badge">Docker</span>
+            <span class="badge">Linux</span>
+            <span class="badge">Git</span>
+            <span class="badge">FFmpeg</span>
+            <span class="badge">Task Scheduler</span>
+          </div>
+        </div>
+
+        <div class="skill-group animate-on-scroll">
+          <h3 class="skill-group-title">
+            <span class="skill-group-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="6" height="6"/><rect x="4" y="4" width="16" height="16" rx="2"/>
+                <line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/>
+                <line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/>
+                <line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/>
+                <line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/>
+              </svg>
+            </span> AI / Data
+          </h3>
+          <div class="badge-list">
+            <span class="badge">Ollama</span>
+            <span class="badge">Claude API</span>
+            <span class="badge">Pandas</span>
+            <span class="badge">Local LLMs</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section class="section" id="services">
+  <div class="container">
+    <h2 class="section-title animate-on-scroll">Services &amp; Live Demos</h2>
+    <p class="animate-on-scroll" style="text-align:center;color:#8b949e;max-width:640px;margin:-8px auto 34px;font-size:15px">Hire me for done-for-you automation &mdash; or try the tools live before you decide.</p>
+    <div class="projects-grid">
+      <article class="project-card animate-on-scroll">
+        <div class="card-accent-line"></div>
+        <div class="project-meta-row"><span class="project-kicker">SERVICE / FINANCE</span><span class="project-signal">from $199</span></div>
+        <div class="card-header"><div class="card-title-row"><h3 class="card-title">AR/AP Automation</h3></div></div>
+        <p style="color:#8b949e;font-size:14px;line-height:1.6;margin:12px 0 18px">Payment&harr;invoice matching, AR aging, drafted collection emails, and duplicate-bill detection &mdash; from a CSV export. For small accounting firms &amp; SMBs. Free proof run.</p>
+        <a href="/arap/" class="btn btn-primary" style="font-size:14px">View AR/AP service &rarr;</a>
+      </article>
+      <article class="project-card animate-on-scroll">
+        <div class="card-accent-line"></div>
+        <div class="project-meta-row"><span class="project-kicker">SERVICE / WEB</span><span class="project-signal">from $99</span></div>
+        <div class="card-header"><div class="card-title-row"><h3 class="card-title">Website QA &amp; Launch Sprints</h3></div></div>
+        <p style="color:#8b949e;font-size:14px;line-height:1.6;margin:12px 0 18px">Find &amp; fix the SEO, mobile, accessibility, and broken-link issues costing you traffic and trust. Prioritized report, 48-hour delivery. Free mini-audit.</p>
+        <a href="/webloom/" class="btn btn-primary" style="font-size:14px">View Webloom service &rarr;</a>
+      </article>
+      <article class="project-card animate-on-scroll">
+        <div class="card-accent-line"></div>
+        <div class="project-meta-row"><span class="project-kicker">LIVE DEMOS</span><span class="project-signal">try now</span></div>
+        <div class="card-header"><div class="card-title-row"><h3 class="card-title">Try the tools live</h3></div></div>
+        <p style="color:#8b949e;font-size:14px;line-height:1.6;margin:12px 0 18px">A real AR/AP sample report, plus my open-source Website QA Auditor and a finance RAG demo with evals + guardrails.</p>
+        <a href="/arap-demo/" class="btn btn-secondary" style="font-size:14px;margin-right:8px">AR/AP report</a>
+        <a href="https://github.com/GhravenLabs/Mini-RAG" target="_blank" rel="noopener" class="btn btn-secondary" style="font-size:14px">RAG demo</a>
+      </article>
+    </div>
   </div>
-</div>
+</section>
 
-<div class=proj>
-  <h3>Mini-RAG — chat with your document</h3>
-  <p class=what>Paste a document, ask a question → it retrieves the most relevant passages (TF-IDF + cosine), the core of Retrieval-Augmented Generation, in pure Python.</p>
-  <div class=cs><b>Problem:</b> RAG is the backbone of useful LLM apps but is usually buried under heavy frameworks.
-  <b>Built:</b> the retrieval pipeline from scratch — chunking, indexing, ranking — with an optional grounded-answer step.
-  <b>Result:</b> a clear, dependency-free demonstration of how retrieval actually works.</div>
-  <div class=stack><span class=chip>Python</span><span class=chip>RAG</span><span class=chip>TF-IDF</span><span class=chip>LLM</span></div>
-  <div class=links>
-    <a class=live href="https://github.com/GhravenLabs/Mini-RAG" target=_blank>Live demo</a>
-    <a href="https://github.com/GhravenLabs/Mini-RAG" target=_blank>Source</a>
+    <section class="section projects-section" id="projects">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Projects</h2>
+      <div class="projects-grid">
+
+        <!-- Card 1 — Featured -->
+        <article class="project-card project-card--featured animate-on-scroll">
+          <div class="card-accent-line"></div>
+          <div class="project-visual project-visual--toolkit" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="project-meta-row">
+            <span class="project-kicker">01 / PYTHON SYSTEMS</span>
+            <span class="project-signal">stdlib modules</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title-row">
+              <h3 class="card-title">Python Utils Toolkit</h3>
+              <span class="card-badge">15 Modules</span>
+            </div>
+            <a href="https://github.com/GhravenLabs/python-utils-toolkit" class="card-link" target="_blank" rel="noopener" aria-label="View on GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="icon-github"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            </a>
+          </div>
+          <p class="card-desc">15 zero-dependency Python modules, each drop-in ready. Covers thread-safe rate limiting, retry with full-jitter backoff, structured logging, async helpers, and HMAC signing — tested in workflows handling hundreds of API calls per session. Zero external dependencies, pure stdlib only.</p>
+          <div class="card-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Pure stdlib</span>
+            <span class="tag">Automation</span>
+            <span class="tag">AI Agents</span>
+          </div>
+        </article>
+
+        <!-- Card 1b -->
+        <article class="project-card project-card--featured animate-on-scroll">
+          <div class="card-accent-line"></div>
+          <div class="project-visual project-visual--api" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="project-meta-row">
+            <span class="project-kicker">02 / PROOF GALLERY</span>
+            <span class="project-signal">live repos</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title-row">
+              <h3 class="card-title">GhravenLabs Proof Gallery</h3>
+              <span class="card-badge">Live</span>
+            </div>
+            <a href="https://ghravenlabs.github.io/" class="card-link" target="_blank" rel="noopener" aria-label="Open proof gallery">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="icon-github"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            </a>
+          </div>
+          <p class="card-desc">A public shelf of small runnable tools under GhravenLabs: Data Cleaner, WPM Trainer, Website QA Auditor, Mini-RAG, and Steam Free Games Tracker. Each repo includes a screenshot, case study, smoke-check workflow, and clear README so reviewers can inspect proof quickly.</p>
+          <div class="card-tags">
+            <span class="tag">Python</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">GitHub Pages</span>
+            <span class="tag">Portfolio Proof</span>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="project-card animate-on-scroll">
+          <div class="card-accent-line"></div>
+          <div class="project-visual project-visual--agents" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="project-meta-row">
+            <span class="project-kicker">02 / MULTI-AGENT APP</span>
+            <span class="project-signal">Ollama + SSE</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title-row">
+              <h3 class="card-title">Agent Meeting Room</h3>
+            </div>
+            <a href="https://github.com/GhravenLabs/Agent-Meeting-Room" class="card-link" target="_blank" rel="noopener" aria-label="View on GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="icon-github"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            </a>
+          </div>
+          <p class="card-desc">A polished Flask multi-agent workspace where local Ollama agents and optional cloud advisors join by @mention. Recent product upgrades added Code Review, Product Debate, Research, and Planning templates, searchable saved memory, Markdown transcript export, customizable agent personas, free-talk SSE streaming, and a portable Windows .exe release. Built as a practical meeting tool, not just a demo chat app.</p>
+          <div class="card-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Flask</span>
+            <span class="tag">Ollama</span>
+            <span class="tag">Claude API</span>
+            <span class="tag">SSE</span>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="project-card animate-on-scroll">
+          <div class="card-accent-line"></div>
+          <div class="project-visual project-visual--video" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="project-meta-row">
+            <span class="project-kicker">03 / AUTOMATION PIPELINE</span>
+            <span class="project-signal">FFmpeg + API</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title-row">
+              <h3 class="card-title">YT Shorts Autopilot</h3>
+            </div>
+            <a href="https://github.com/Ghraven/yt-shorts-autopilot" class="card-link" target="_blank" rel="noopener" aria-label="View on GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="icon-github"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            </a>
+          </div>
+          <p class="card-desc">Fully automated end-to-end pipeline — processes and schedules up to 4 uploads/day via YouTube Data API v3. Handles watermarking, loudness normalization, and optional BGM mixing via FFmpeg, then moves files to <code>done/</code> automatically. Saves ~2–3 hours of manual work per week. Runs on Windows startup via Task Scheduler.</p>
+          <div class="card-tags">
+            <span class="tag">Python</span>
+            <span class="tag">FFmpeg</span>
+            <span class="tag">YouTube API v3</span>
+            <span class="tag">Windows</span>
+            <span class="tag">Automation</span>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="project-card animate-on-scroll">
+          <div class="card-accent-line"></div>
+          <div class="project-visual project-visual--api" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="project-meta-row">
+            <span class="project-kicker">04 / RELIABILITY UTILS</span>
+            <span class="project-signal">rate + retry</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title-row">
+              <h3 class="card-title">API Utilities (Gist)</h3>
+              <span class="card-badge card-badge--gist">Gist</span>
+            </div>
+            <a href="https://gist.github.com/Ghraven/2550f83090b8c6d51964cecf2668786f" class="card-link" target="_blank" rel="noopener" aria-label="View Gist">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="icon-github"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            </a>
+          </div>
+          <p class="card-desc">Two battle-tested utilities pulled from production code. A thread-safe token-bucket <code>RateLimiter</code> supporting configurable call budgets per second, plus a <code>@retry</code> decorator with full-jitter exponential backoff — handles hundreds of API requests per session reliably. Zero dependencies, drop-in for any project.</p>
+          <div class="card-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Rate Limiting</span>
+            <span class="tag">Retry Logic</span>
+            <span class="tag">Pure stdlib</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Get In Touch</h2>
+      <p class="contact-sub animate-on-scroll">
+        I'm open to junior Python roles, AI automation work, open-source collaboration, and practical tools that need someone persistent enough to ship.
+      </p>
+
+      <button class="contact-email-cta animate-on-scroll" id="open-contact-modal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        <span>Send me a message</span>
+        <span class="cta-reply">Responds within 24h →</span>
+      </button>
+
+      <div class="contact-links animate-on-scroll">
+
+        <a href="https://www.linkedin.com/in/rollycalma/" class="contact-item" target="_blank" rel="noopener">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </span>
+          <div>
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">linkedin.com/in/rollycalma</span>
+          </div>
+          <span class="contact-arrow">→</span>
+        </a>
+
+        <a href="https://github.com/Ghraven" class="contact-item" target="_blank" rel="noopener">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+            </svg>
+          </span>
+          <div>
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">github.com/Ghraven</span>
+          </div>
+          <span class="contact-arrow">→</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="footer-social">
+        <a href="https://github.com/Ghraven" target="_blank" rel="noopener">GitHub</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.linkedin.com/in/rollycalma/" target="_blank" rel="noopener">LinkedIn</a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:rolly.calma.0217@gmail.com">rolly.calma.0217@gmail.com</a>
+      </div>
+      <p class="footer-meta">© <span id="footer-year"></span> Rolly Calma · Built with HTML, CSS, and JS · Hosted on GitHub Pages</p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <!-- ===================== CONTACT MODAL ===================== -->
+  <div class="modal-overlay" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+
+      <!-- Default: form state -->
+      <div class="modal-form-state" id="modal-form-state">
+        <div class="modal-header">
+          <div>
+            <h3 class="modal-title" id="modal-title">Send a Message</h3>
+            <p class="modal-subtitle">I'll reply to your email within 24h.</p>
+          </div>
+          <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="f-name">Your Name</label>
+              <input class="form-input" id="f-name" name="name" type="text" placeholder="John Doe" autocomplete="name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-email">
+                Your Email
+                <span class="form-error" id="email-error"></span>
+              </label>
+              <input class="form-input" id="f-email" name="email" type="email" placeholder="you@gmail.com" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-subject">Subject</label>
+            <input class="form-input" id="f-subject" name="subject" type="text" placeholder="What's this about?" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-message">Message</label>
+            <textarea class="form-input form-textarea" id="f-message" name="message" placeholder="Write your message here..." rows="5" required></textarea>
+          </div>
+          <div class="form-footer">
+            <span class="form-note">rolly.calma.0217@gmail.com</span>
+            <button type="submit" class="btn-send" id="btn-send">
+              <span class="btn-send-label">Send Message</span>
+              <span class="btn-send-spinner" aria-hidden="true"></span>
+              <svg class="btn-send-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Success state -->
+      <div class="modal-success-state" id="modal-success-state">
+        <div class="success-animation">
+          <svg class="success-svg" viewBox="0 0 52 52">
+            <circle class="success-circle" cx="26" cy="26" r="24" fill="none"/>
+            <path class="success-tick" d="M14 27 l8 8 l16 -16" fill="none"/>
+          </svg>
+        </div>
+        <h3 class="success-title">Message Sent!</h3>
+        <p class="success-msg">Thanks for reaching out. I'll get back to you within 24h.</p>
+        <button class="btn-close-success" id="btn-close-success">Close</button>
+      </div>
+
+    </div>
   </div>
-</div>
 
-<div class=proj>
-  <h3>AR/AP Autopilot</h3>
-  <p class=what>Automated accounts-receivable & payable for small accounting firms — invoice↔payment matching, AR aging, drafted collection emails, duplicate-bill detection — from a CSV export.</p>
-  <div class=cs><b>Problem:</b> small firms burn hours chasing receivables and re-checking supplier bills by hand.
-  <b>Built:</b> a Python engine with live Xero + QuickBooks connectors, a forgiving CSV loader, and a dashboard.
-  <b>Result:</b> packaged as a concierge service and taken to real firms (this is where my finance background compounds with code).</div>
-  <div class=stack><span class=chip>Python</span><span class=chip>Xero/QuickBooks API</span><span class=chip>finance automation</span><span class=chip>tested</span></div>
-  <div class=links>
-    <a class=live href="arap-demo/" target=_blank>Live sample</a>
-  </div>
-</div>
-
-<h2 class=sec>About</h2>
-<p class=about>I came to programming from accounting, so I build for the boring, high-value problems — reconciliation, reporting, automation — and I finish things: every project above is tested and runnable, not a half-built demo. I work the way a small team needs: read the requirement, build the smallest thing that solves it, verify it works, ship it. Comfortable with Python, web front-ends, APIs over scraping, LLM/RAG tooling, and AI coding workflows.</p>
-
-<div class=foot>
-  <b>Rolly Calma</b> · <a href="mailto:rolly.calma.0217@gmail.com">rolly.calma.0217@gmail.com</a> ·
-  <a href="https://github.com/Ghraven" target=_blank>github.com/Ghraven</a><br>
-  <span style="font-size:12px">Open to remote junior Python / AI-automation roles and freelance project work.</span>
-</div>
-</div><script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfilePage","dateModified":"2026-07-07","mainEntity":{"@type":"Person","name":"Rolly Calma","alternateName":"Raven","jobTitle":"Python Developer","description":"Self-taught Python developer with a finance/accounting background, building AR/AP automation and website-QA tooling.","url":"https://rollycalma.com/","email":"rolly.calma.0217@gmail.com","knowsAbout":["Python","AI automation","Accounts receivable automation","Accounts payable automation","Invoice matching","Website QA","Retrieval-Augmented Generation","Finance automation","Data cleaning"],"address":{"@type":"PostalAddress","addressCountry":"PH"},"sameAs":["https://github.com/Ghraven","https://github.com/GhravenLabs","https://ghravenlabs.github.io/","https://www.linkedin.com/in/rollycalma/"]}}
-</script>
-</body></html>
+  <script src="script.js"></script>
+</body>
+</html>
