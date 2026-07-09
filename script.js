@@ -318,6 +318,7 @@ backToTop.addEventListener('click', () => {
      3. Replace the FORMSPREE_ENDPOINT value below with your URL.
    ============================================================ */
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+const hasConfiguredFormEndpoint = !FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID');
 
 const modal         = document.getElementById('contact-modal');
 const openBtn       = document.getElementById('open-contact-modal');
@@ -448,6 +449,19 @@ contactForm.addEventListener('submit', async e => {
     message: document.getElementById('f-message').value.trim(),
   };
 
+  const openMailFallback = () => {
+    const subject = encodeURIComponent(data.subject || 'Message from portfolio');
+    const body    = encodeURIComponent(`From: ${data.name} (${data.email})\n\n${data.message}`);
+    window.location.href = `mailto:rolly.calma.0217@gmail.com?subject=${subject}&body=${body}`;
+  };
+
+  if (!hasConfiguredFormEndpoint) {
+    openMailFallback();
+    sendBtn.classList.remove('loading');
+    sendBtn.disabled = false;
+    return;
+  }
+
   try {
     const res = await fetch(FORMSPREE_ENDPOINT, {
       method:  'POST',
@@ -465,9 +479,7 @@ contactForm.addEventListener('submit', async e => {
     }
   } catch {
     // Fallback: open mailto pre-filled so the message isn't lost
-    const subject = encodeURIComponent(data.subject || 'Message from portfolio');
-    const body    = encodeURIComponent(`From: ${data.name} (${data.email})\n\n${data.message}`);
-    window.location.href = `mailto:rolly.calma.0217@gmail.com?subject=${subject}&body=${body}`;
+    openMailFallback();
     sendBtn.classList.remove('loading');
     sendBtn.disabled = false;
   }

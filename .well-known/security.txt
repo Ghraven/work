@@ -1,0 +1,5 @@
+Contact: mailto:rolly.calma.0217@gmail.com
+Preferred-Languages: en
+Canonical: https://rollycalma.com/.well-known/security.txt
+Policy: https://github.com/Ghraven
+Expires: 2027-07-09T00:00:00Z
