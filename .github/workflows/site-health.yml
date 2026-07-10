@@ -1,0 +1,74 @@
+name: Site Health
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "17 23 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-domain-check:
+    name: Check rollycalma.com
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check live URLs and security markers
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          base="https://rollycalma.com"
+          paths=(
+            "/"
+            "/arap/"
+            "/webloom/"
+            "/arap-demo/"
+            "/robots.txt"
+            "/sitemap.xml"
+            "/llms.txt"
+            "/.well-known/security.txt"
+            "/script.js"
+          )
+
+          for path in "${paths[@]}"; do
+            code="$(curl --silent --show-error --location --max-time 20 --output /tmp/site-body --write-out "%{http_code}" "$base$path")"
+            echo "$base$path -> $code"
+            test "$code" = "200"
+          done
+
+          curl --silent --show-error --location --max-time 20 "$base/" --output /tmp/root.html
+          grep -qi "Content-Security-Policy" /tmp/root.html
+          grep -qi "strict-origin-when-cross-origin" /tmp/root.html
+          grep -qi "https://rollycalma.com/" /tmp/root.html
+
+          curl --silent --show-error --location --max-time 20 "$base/.well-known/security.txt" --output /tmp/security.txt
+          grep -q "Contact: mailto:rolly.calma.0217@gmail.com" /tmp/security.txt
+          grep -q "Canonical: https://rollycalma.com/.well-known/security.txt" /tmp/security.txt
+          grep -q "Expires: 2027-07-09T00:00:00Z" /tmp/security.txt
+
+          curl --silent --show-error --location --max-time 20 "$base/script.js" --output /tmp/script.js
+          grep -q "hasConfiguredFormEndpoint" /tmp/script.js
+          grep -q "openMailFallback" /tmp/script.js
+          grep -q "!hasConfiguredFormEndpoint" /tmp/script.js
+
+          if grep -R "http://rollycalma.com" /tmp/root.html /tmp/security.txt /tmp/script.js; then
+            echo "Found insecure rollycalma.com URL."
+            exit 1
+          fi
+
+          echo "Live domain checks passed."
+
+      - name: Advisory header snapshot
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --silent --show-error --head --location --max-time 20 https://rollycalma.com/ | sed -n '1,20p'
+          echo
+          echo "Note: GitHub Pages may not expose custom HTTP security headers. CSP/referrer checks above inspect the HTML meta policy."
+
