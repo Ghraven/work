@@ -17,6 +17,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check internal links
+        shell: bash
+        run: python tools/check-internal-links.py
+
       - name: Check live URLs and security markers
         shell: bash
         run: |
@@ -71,4 +78,3 @@ jobs:
           curl --silent --show-error --head --location --max-time 20 https://rollycalma.com/ | sed -n '1,20p'
           echo
           echo "Note: GitHub Pages may not expose custom HTTP security headers. CSP/referrer checks above inspect the HTML meta policy."
-

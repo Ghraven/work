@@ -12,6 +12,7 @@ GitHub Actions runs `.github/workflows/site-health.yml`:
 
 It verifies:
 
+- Local internal links and same-page anchors resolve before the live checks run.
 - The public domain routes return HTTP 200.
 - `/.well-known/security.txt`, `robots.txt`, `sitemap.xml`, and `llms.txt` remain live.
 - The root page still includes CSP and referrer-policy meta tags.
@@ -26,6 +27,12 @@ Run this from the repo root:
 
 ```powershell
 .\tools\check-domain-security.ps1
+```
+
+Run the internal link checker:
+
+```powershell
+python .\tools\check-internal-links.py
 ```
 
 Optional:
