@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; frame-src 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Mini-RAG Case Study - Rolly Calma</title>
+  <meta name="description" content="Case study for Mini-RAG, a compact retrieval-augmented generation demo by Rolly Calma." />
+  <link rel="canonical" href="https://rollycalma.com/case-studies/mini-rag/">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/page.css" />
+</head>
+<body class="proof-page">
+  <nav class="page-nav">
+    <div class="page-nav-inner">
+      <a class="page-nav-brand" href="/">RC<span class="accent">.</span></a>
+      <div class="page-nav-links">
+        <a href="/case-studies/">Case Studies</a>
+        <a href="/now/">Now</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-shell">
+    <span class="page-kicker">Case study - RAG</span>
+    <h1 class="page-title">Mini-RAG shows the practical parts of retrieval, grounding, and evals.</h1>
+    <p class="page-lede">This project exists to show that I understand more than a chatbot wrapper: document loading, retrieval quality, answer grounding, guardrails, and simple checks that make a RAG system reviewable.</p>
+    <div class="page-actions">
+      <a class="btn btn-primary" href="https://mini-rag-ju6l.onrender.com/" target="_blank" rel="noopener">Open live demo</a>
+      <a class="btn btn-secondary" href="https://github.com/GhravenLabs/Mini-RAG" target="_blank" rel="noopener">View source</a>
+    </div>
+
+    <section class="proof-band">
+      <div class="proof-grid">
+        <article class="proof-card"><span class="proof-metric">PROBLEM</span><p>Many RAG demos hide the retrieval step and make it hard to tell whether an answer came from source material or model guesswork.</p></article>
+        <article class="proof-card"><span class="proof-metric">BUILD</span><p>A small Python demo keeps retrieval, source context, and response checks visible so the failure modes are easy to inspect.</p></article>
+        <article class="proof-card"><span class="proof-metric">PROOF</span><p>The demo has a public Render service, README, and portfolio links so reviewers can inspect both the running app and implementation.</p></article>
+      </div>
+    </section>
+
+    <section class="proof-band">
+      <ul class="proof-list">
+        <li>Good for showing junior AI engineering fundamentals: chunking, ranking, grounding, and testable behavior.</li>
+        <li>Kept intentionally lightweight so the architecture is readable and not buried under a large framework.</li>
+        <li>Next upgrade: add a small public corpus switcher and a saved evaluation report for each sample question set.</li>
+      </ul>
+      <p class="proof-note">Render free services can sleep after inactivity, so first load may take around 30 seconds.</p>
+    </section>
+  </main>
+
+  <footer class="page-footer">Rolly Calma - RAG, evals, and practical AI automation</footer>
+</body>
+</html>

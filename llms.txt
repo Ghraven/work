@@ -17,13 +17,22 @@
 
 ## Live projects
 
-- [Website QA Auditor](https://github.com/Ghraven): Analyzes a web page for SEO, accessibility, and mobile issues and returns a letter-graded, client-ready report.
+- [Website QA Auditor](https://qa-auditor.onrender.com/): Live Render demo that analyzes a web page for SEO, accessibility, and mobile issues and returns a letter-graded, client-ready report.
 - [AR/AP Autopilot](https://github.com/Ghraven): Accounts-receivable and accounts-payable automation with invoice matching, aging reports, and Xero/QuickBooks connectors.
-- [Mini-RAG](https://github.com/Ghraven): A lightweight retrieval-augmented question-answering demo (TF-IDF ranking, no heavy dependencies).
+- [Mini-RAG](https://mini-rag-ju6l.onrender.com/): Lightweight retrieval-augmented question-answering demo with retrieval, eval, and guardrail proof.
+
+## Case studies
+
+- [Case Studies](https://rollycalma.com/case-studies/): Short public proof pages for the core portfolio work.
+- [Website QA Auditor Case Study](https://rollycalma.com/case-studies/website-qa-auditor/): Problem, build, deployment proof, and next upgrade.
+- [Mini-RAG Case Study](https://rollycalma.com/case-studies/mini-rag/): RAG fundamentals, grounding, and evaluation proof.
+- [Agent Meeting Room Case Study](https://rollycalma.com/case-studies/agent-meeting-room/): Local multi-agent Flask workspace with presets, memory, streaming, and exports.
 
 ## Links
 
 - Portfolio: https://rollycalma.com/
+- Current focus: https://rollycalma.com/now/
+- Contact / hire: https://rollycalma.com/contact/
 - GitHub (personal): https://github.com/Ghraven
 - GitHub (org): https://github.com/GhravenLabs
 - Proof gallery: https://ghravenlabs.github.io/
