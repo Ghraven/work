@@ -290,12 +290,12 @@ code {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 36px;
+  gap: 22px;
 }
 
 .nav-link {
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   color: var(--text-secondary);
   letter-spacing: 0.02em;
   transition: color 0.2s ease;

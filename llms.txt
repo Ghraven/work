@@ -31,6 +31,7 @@
 ## Links
 
 - Portfolio: https://rollycalma.com/
+- Start here: https://rollycalma.com/start/
 - Current focus: https://rollycalma.com/now/
 - Contact / hire: https://rollycalma.com/contact/
 - GitHub (personal): https://github.com/Ghraven
