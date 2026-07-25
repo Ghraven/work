@@ -2217,6 +2217,12 @@ code {
   line-height: 1.75;
 }
 
+.oss-updated {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
 .oss-proof-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
