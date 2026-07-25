@@ -147,7 +147,7 @@ const animateEls = document.querySelectorAll('.animate-on-scroll');
 // Capped so even a long row finishes quickly (motion should feel instant).
 const STAGGER_STEP = 0.06; // seconds
 const STAGGER_MAX = 0.24;  // seconds
-const grids = document.querySelectorAll('.skills-grid, .projects-grid, .services-grid, .oss-repos');
+const grids = document.querySelectorAll('.skills-grid, .projects-grid, .services-grid, .oss-repos, .proof-strip-grid');
 grids.forEach(grid => {
   Array.from(grid.children).forEach((child, index) => {
     child.style.transitionDelay = `${Math.min(index * STAGGER_STEP, STAGGER_MAX)}s`;

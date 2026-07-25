@@ -1,0 +1,52 @@
+name: Sync GitHub Stats
+
+on:
+  schedule:
+    - cron: "43 22 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    name: Refresh portfolio stats
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Sync stats from GitHub profile
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/sync-github-stats.py
+
+      - name: Verify internal links
+        shell: bash
+        run: python tools/check-internal-links.py
+
+      - name: Guard public content
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RniE "TradingAgents|TauricResearch/TradingAgents|crypto|trading|forex|binance|ccxt|stocktwits" \
+            --include='*.html' --include='*.md' --include='*.txt' .; then
+            echo "Forbidden public topic found."
+            exit 1
+          fi
+
+      - name: Commit changed stats
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- index.html; then
+            echo "No stat changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Sync portfolio GitHub stats"
+          git push
