@@ -1486,6 +1486,12 @@ code {
   }
 }
 
+@media (min-width: 1600px) {
+  .hero-luxury-stage {
+    right: clamp(220px, 20vw, 520px);
+  }
+}
+
 @keyframes livePulse {
   0%,
   100% {
