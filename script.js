@@ -13,6 +13,7 @@ window.addEventListener('load', () => {
    ============================================================ */
 const html = document.documentElement;
 const themeToggle = document.getElementById('theme-toggle');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 themeToggle.addEventListener('click', () => {
   const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
@@ -166,12 +167,93 @@ const animObserver = new IntersectionObserver(entries => {
 animateEls.forEach(el => animObserver.observe(el));
 
 /* ============================================================
+   PROOF STAT COUNT-UP
+   ============================================================ */
+function splitStatText(value) {
+  const text = value.trim();
+  const match = text.match(/^([\d,.]+)(.*)$/);
+  if (!match) return null;
+  return {
+    number: Number(match[1].replace(/,/g, '')),
+    suffix: match[2] || '',
+  };
+}
+
+function animateStat(el) {
+  const stat = splitStatText(el.textContent || '');
+  if (!stat || !Number.isFinite(stat.number)) return;
+
+  const duration = 1050;
+  const start = performance.now();
+  const shouldCompact = stat.suffix.toLowerCase().includes('k');
+  const formatter = new Intl.NumberFormat('en-US', {
+    maximumFractionDigits: 0,
+    useGrouping: !shouldCompact,
+  });
+
+  function frame(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = `${formatter.format(Math.round(stat.number * eased))}${stat.suffix}`;
+
+    if (progress < 1) {
+      window.requestAnimationFrame(frame);
+    }
+  }
+
+  window.requestAnimationFrame(frame);
+}
+
+if (!prefersReducedMotion) {
+  const statTiles = document.querySelectorAll('.hero-proof-num');
+  const statObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateStat(entry.target);
+        statObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.45 });
+
+  statTiles.forEach(el => statObserver.observe(el));
+}
+
+/* ============================================================
+   CARD SPOTLIGHT + TILT
+   ============================================================ */
+if (!prefersReducedMotion && window.matchMedia('(hover: hover)').matches) {
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('pointermove', event => {
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      const xPct = x / rect.width;
+      const yPct = y / rect.height;
+      const rotateX = (0.5 - yPct) * 5;
+      const rotateY = (xPct - 0.5) * 5;
+
+      card.style.setProperty('--spotlight-x', `${Math.round(xPct * 100)}%`);
+      card.style.setProperty('--spotlight-y', `${Math.round(yPct * 100)}%`);
+      card.style.setProperty('--tilt-x', `${rotateX.toFixed(2)}deg`);
+      card.style.setProperty('--tilt-y', `${rotateY.toFixed(2)}deg`);
+    }, { passive: true });
+
+    card.addEventListener('pointerleave', () => {
+      card.style.setProperty('--spotlight-x', '50%');
+      card.style.setProperty('--spotlight-y', '0%');
+      card.style.setProperty('--tilt-x', '0deg');
+      card.style.setProperty('--tilt-y', '0deg');
+    });
+  });
+}
+
+/* ============================================================
    HERO PARALLAX
    ============================================================ */
 const heroGrid = document.querySelector('.hero-bg-grid');
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const heroLuxuryStage = document.querySelector('.hero-luxury-stage');
 
-if (heroGrid && !prefersReducedMotion) {
+if ((heroGrid || heroLuxuryStage) && !prefersReducedMotion) {
   let parallaxTicking = false;
   document.addEventListener('mousemove', (e) => {
     if (parallaxTicking) return;
@@ -179,7 +261,13 @@ if (heroGrid && !prefersReducedMotion) {
     window.requestAnimationFrame(() => {
       const x = (window.innerWidth / 2 - e.pageX) / 50;
       const y = (window.innerHeight / 2 - e.pageY) / 50;
-      heroGrid.style.transform = `translate(${x}px, ${y}px)`;
+      if (heroGrid) {
+        heroGrid.style.transform = `translate(${x}px, ${y}px)`;
+      }
+      if (heroLuxuryStage) {
+        heroLuxuryStage.style.setProperty('--lux-x', `${(-x * 0.95).toFixed(2)}px`);
+        heroLuxuryStage.style.setProperty('--lux-y', `${(-y * 0.75).toFixed(2)}px`);
+      }
       parallaxTicking = false;
     });
   }, { passive: true });
